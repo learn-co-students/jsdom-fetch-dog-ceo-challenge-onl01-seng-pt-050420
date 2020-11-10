@@ -2,6 +2,8 @@ console.log('%c HI', 'color: firebrick')
 
 const dogList = document.querySelector("#dog-breeds")
 const dropdown = document.querySelector("#breed-dropdown")
+const imgUrl = "https://dog.ceo/api/breeds/image/random/4";
+const breedUrl = 'https://dog.ceo/api/breeds/list/all';
 
 // Approach 1: Stateful
 // store all the breeds in an array
@@ -9,9 +11,40 @@ const dropdown = document.querySelector("#breed-dropdown")
 // (also, clear the list)
 // use that list to display
 
+function getImages(imagesUrl)
+{
+  const imageContainer = document.getElementById("dog-image-container");
+  imagesUrl.message.forEach(image => {
+    let imageNode = document.createElement("img");
+    imageNode.src = image;
+    imageContainer.appendChild(imageNode);
+  })
+}
+
 // Approach 2: DOM Source Of Truth
 // iterate over all the lis
 // if they don't start with the letter, hide them with CSS
+
+function changeColor(element)
+{
+  element.style.color = "#FD5E53";    // sunset orange
+}
+
+function getBreeds(breedsUrl)
+{
+  const breedsContainer = document.getElementById("dog-breeds");
+  Object.keys(breedsUrl.message).forEach(breed => {
+    if (breedsUrl.message[breed].length !== 0)
+    {
+      breedsUrl.message[breed].forEach(subBreed => {
+        let liNode = document.createElement("li");
+        liNode.innerText = subBreed;
+        liNode.addEventListener("click", (event) => changeColor(event.target))
+        breedsContainer.appendChild(liNode);
+      })
+    }
+  })
+}
 
 // State
 let breedList = []
