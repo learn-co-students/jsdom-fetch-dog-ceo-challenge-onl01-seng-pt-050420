@@ -9,6 +9,8 @@ const dropdown = document.querySelector("#breed-dropdown")
 // (also, clear the list)
 // use that list to display
 
+
+
 // Approach 2: DOM Source Of Truth
 // iterate over all the lis
 // if they don't start with the letter, hide them with CSS
@@ -77,7 +79,7 @@ function renderAllImages(data) {
 function loadImages() {
   // when the page loads
   // make a GET request
-  fetch("https://dog.ceo/api/breeds/image/random/4")
+  fetch("https://api.thecatapi.com/v1/images/search")
     .then(response => response.json())
     .then(renderAllImages)
 }
