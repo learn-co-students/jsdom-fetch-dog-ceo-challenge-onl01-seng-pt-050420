@@ -1,12 +1,10 @@
-// console.log('%c HI', 'color: firebrick')
+// Challenge 1
 
 window.addEventListener('DOMContentLoaded', () => {
     fetchImg();
 });
 
 const imgUrl = "https://dog.ceo/api/breeds/image/random/4"
-
-const breedUrl = 'https://dog.ceo/api/breeds/list/all'
 
 function fetchImg(){
     return fetch("https://dog.ceo/api/breeds/image/random/4")
@@ -22,3 +20,8 @@ function renderImg(image) {
       dogImageContainer.appendChild(element);
   })
 }
+
+
+// Challenge 2
+
+const breedUrl = 'https://dog.ceo/api/breeds/list/all'
