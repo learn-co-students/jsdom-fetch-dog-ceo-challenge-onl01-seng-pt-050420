@@ -27,10 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
       pic.innerHTML = `<img src="${imgUrl}">`
       dogImgContainer.appendChild(pic)
     })
-
-    const dogImgString = imgs.message.map((imgUrl) =>{
-      return `<img src="${imgUrl}>`
-    })
   }
 
 
